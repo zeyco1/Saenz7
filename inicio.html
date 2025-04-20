@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido a Nuestra Fotografía</title>
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+            background-color: white;
+            color: #111;
+            font-family: "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        header {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem auto;
+            flex-wrap: wrap;
+            max-width: 900px;
+            padding: 0 1rem;
+        }
+
+        .feature {
+            flex: 1 1 280px;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 16px;
+            background-color: #f7f7f7;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .feature {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.05);
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+        }
+
+        .feature img {
+            width: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            margin: 0.5rem 0;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 1rem;
+            color: #003060;
+            background-color: #003060;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        footer a {
+            color: #00bcd4; /* Celeste claro */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tu historia, nuestra lente</h1>
+        <p class="intro">Capturamos momentos que despiertan emociones, porque una foto no es solo una imagen: es un recuerdo que revive cada vez que lo ves.</p>
+    </header>
+
+    <section class="features">
+        <div class="feature">
+            <img src="image/emocion.jpg" alt="Conexión Emocional">
+            <h3>Fotografía emocional</h3>
+            <p>Despierta emociones con imágenes que hablan por ti. Creamos recuerdos que conectan con el corazón.</p>
+        </div>
+
+        <div class="feature">
+            <img src="image/exclusivo.jpg" alt="Sesiones Exclusivas">
+            <h3>Sesiones exclusivas</h3>
+            <p>Cupos limitados por mes. Vive una experiencia única, diseñada solo para ti.</p>
+        </div>
+
+        <div class="feature">
+            <img src="image/confianza.jpg" alt="Confianza Garantizada">
+            <h3>+700 clientes felices</h3>
+            <p>Nuestra mejor carta de presentación son quienes ya vivieron la experiencia. ¿Y tú, qué esperas?</p>
+        </div>
+    </section>
+
+    <footer>
+        Síguenos en Instagram ➤ <a href="https://www.instagram.com/saenz_z7/profilecard/?igsh=cWN0bjY1NGtqbGNj" target="_blank">@Saenz_Z7</a>
+    </footer>
+
+    <script>
+        
+        window.addEventListener("message", (event) => {
+            if (event.data === "modo-oscuro") {
+                document.body.classList.add("dark-mode");
+            } else if (event.data === "modo-claro") {
+                document.body.classList.remove("dark-mode");
+            }
+        });
+    </script>
+
+</body>
+</html>

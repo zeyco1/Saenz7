@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Contacto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2a7f62;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      background: white;
+      color: black;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    button {
+      background: #2a7f62;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #1f5e49;
+    }
+
+    #respuesta {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #2a7f62;
+    }
+
+    /* 🌙 MODO OSCURO */
+    body.dark-mode {
+      background: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .form-container {
+      background: #2c2c2c;
+      color: #f0f0f0;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .dark-mode input[type="text"],
+    .dark-mode input[type="email"],
+    .dark-mode textarea {
+      background: #444;
+      color: #f0f0f0;
+      border: 1px solid #666;
+    }
+
+    .dark-mode button {
+      background: #4caf50;
+    }
+
+    .dark-mode button:hover {
+      background: #3e8e41;
+    }
+
+    .dark-mode #respuesta {
+      color: #a5d6a7;
+    }
+
+    #whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #25D366;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background 0.3s ease;
+    }
+
+    #whatsapp-btn:hover {
+    background-color: #1ebe5b;
+    }
+
+    /* Modo oscuro */
+    .dark-mode #whatsapp-btn {
+    background-color: #128C7E;
+    color: white;
+    }
+
+    .dark-mode #whatsapp-btn:hover {
+    background-color: #0e6f63;
+    }
+
+    .whatsapp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+
+    .whatsapp-message {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #2a7f62;
+    font-weight: 500;
+    }
+
+    .dark-mode .whatsapp-message {
+    color: #a5d6a7;
+    }
+
+    .title_contact {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #2a7f62;
+    font-weight: 500;
+    }
+    .dark-mode .title_contact {
+    color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+
+    <!-- ✅ Mover AQUÍ el botón de WhatsApp -->
+    <div class="whatsapp-container">
+        <div style="text-align: center;">
+          <a id="whatsapp-btn" href="https://wa.me/50764330457?text=Hola%2C%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20fotograf%C3%ADa%20profesional." target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" fill="white" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M16.004 2.003c-7.73 0-14 6.27-14 14 0 2.484.657 4.897 1.906 7.014L2 30l7.214-1.89c2.026 1.11 4.32 1.694 6.79 1.694h.001c7.73 0 14.001-6.27 14.001-14s-6.27-14.001-14.001-14.001zm7.926 19.442c-.332.93-1.624 1.73-2.28 1.842-.583.095-1.323.135-2.134-.134-.491-.156-1.122-.365-1.937-.713-3.412-1.473-5.64-4.943-5.812-5.177-.172-.232-1.388-1.85-1.388-3.533s.878-2.5 1.193-2.845c.313-.342.678-.43.905-.43.23 0 .45.003.647.012.21.01.488-.078.764.58.29.684.985 2.368 1.07 2.537.086.17.144.376.027.608-.116.232-.174.375-.339.58-.172.21-.366.472-.523.633-.172.172-.351.36-.151.705.2.346.888 1.467 1.91 2.377 1.313 1.172 2.426 1.534 2.773 1.704.348.17.55.144.758-.087.208-.23.87-1.008 1.104-1.354.232-.348.463-.287.78-.174.31.11 1.963.927 2.3 1.096.34.17.567.256.652.4.085.14.085.81-.25 1.74z"/>
+              </svg>
+            Contáctanos por WhatsApp
+          </a>
+          <p class="whatsapp-message">Respondemos en menos de 17 horas ⏱️</p>
+        </div>
+    </div>
+    
+    <h2>📬 <p class="title_contact">¿Le gustaría que le contactemos?</p>
+    </h2>
+    <p>Déjenos sus datos y nos comunicaremos con usted lo antes posible.</p>
+    <form id="miFormulario">
+      <label>Nombre Completo:</label>
+      <input type="text" name="Nombre" required>
+
+      <label>Teléfono:</label>
+      <input type="text" name="Telefono" required>
+
+      <label>Correo:</label>
+      <input type="email" name="Correo" required>
+
+      <label>Nota:</label>
+      <textarea name="Nota"></textarea>
+
+      <label>Fecha:</label>
+      <input type="text" name="Fecha" id="fecha" readonly>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <p id="respuesta"></p>
+  </div>
+
+  <script>
+    // Establecer la fecha
+    document.getElementById("fecha").value = new Date().toISOString().split('T')[0];
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzt1-OpH48GOswMBzYQuNSGjEAWAH1dSzK64eZcD6eY3H6uU9Y56FL-IcT1ltIHlEC2/exec';
+    const form = document.getElementById('miFormulario');
+    const respuesta = document.getElementById('respuesta');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          respuesta.innerText = "¡Enviado correctamente!";
+          form.reset();
+          document.getElementById("fecha").value = new Date().toISOString().split('T')[0];
+        })
+        .catch(error => respuesta.innerText = "Error al enviar");
+    });
+
+    // 🔄 Escuchar el mensaje desde el iframe para cambiar el modo
+    window.addEventListener("message", function(event) {
+      if (event.data === "modo-oscuro") {
+        document.body.classList.add("dark-mode");
+      } else if (event.data === "modo-claro") {
+        document.body.classList.remove("dark-mode");
+      }
+    });
+  </script>
+</body>
+</html>

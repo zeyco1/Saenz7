@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      transition: background-color 0.3s, color 0.3s;
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .cover-image {
+      width: 50%;
+      height: auto;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tabs button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #001e3b;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .tabs button.active {
+      background-color: #004080;
+    }
+
+    .group-container {
+      display: none;
+    }
+
+    .group-container.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+            background-color: #00cfff;
+            border: 2px solid #001e3b;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: background-color 0.3s;
+    }
+
+    .dark-mode .card {
+      background-color: #1e1e1e;
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      color: #001e3b;
+    }
+
+    .dark-mode .card h3 {
+      color: #90c0ff;
+    }
+
+    .price {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .boton-categoria {
+        background-color: #00cfff;
+        border: none;
+        border-radius: 30px;
+        padding: 12px 25px;
+        margin: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .boton-categoria:hover {
+        background-color: #00b3e0;
+        transform: translateY(-2px);
+    }
+
+    .botones-container {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    @media (max-width: 768px) {
+      .botones-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white; /* O usa un color semitransparente o el que desees */
+        padding: 10px;
+        z-index: 1000;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+      }
+
+      .dark-mode .botones-container {
+        background-color: #121212;
+      }
+    }
+    .boton-categoria.active {
+      background-color: #0077a3; /* Un azul más oscuro que el original */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Un poco más de sombra si quieres */
+    }
+  </style>
+</head>
+<body>
+
+    <div class="botones-container">
+        <button class="boton-categoria" onclick="mostrarGrupo('profesionales')">Profesionales</button>
+        <button class="boton-categoria" onclick="mostrarGrupo('grupales')">Grupales</button>
+        <button class="boton-categoria" onclick="mostrarGrupo('eventos')">Eventos</button>
+    </div>
+
+  <div id="profesionales" class="group-container active">
+    <div class="card">
+      <h3>Esencia Natural</h3>
+      <p class="price">$65</p>
+      <p>20 fotos | 10 editadas<br>Lo justo para verte como te sientes: auténtico, fuerte, único.</p>
+    </div>
+    <div class="card">
+      <h3>Brilla sin Filtro</h3>
+      <p class="price">$80</p>
+      <p>30 fotos | 15 editadas<br>Tu luz merece ser capturada con estilo profesional y detalle único.</p>
+    </div>
+    <div class="card">
+      <h3>Tu Mejor Historia</h3>
+      <p class="price">$100</p>
+      <p>40 fotos | 20 editadas<br>Una sesión completa que habla de ti. Ideal para portafolios, campañas o branding personal.</p>
+    </div>
+  </div>
+
+  <div id="grupales" class="group-container">
+    <div class="card">
+      <h3>Conexión Total</h3>
+      <p class="price">$120</p>
+      <p>Hasta 10 personas | 50 fotos | 25 editadas<br>Ríe, juega, conéctate… nosotros capturamos cada instante.</p>
+    </div>
+    <div class="card">
+      <h3>Momentos Compartidos</h3>
+      <p class="price">$12/persona</p>
+      <p>Mínimo 10 personas<br>5 fotos por persona | 1–2 editadas<br>Un recuerdo individual en una experiencia grupal.</p>
+    </div>
+    <div class="card">
+      <h3>Recuerdo Exprés</h3>
+      <p class="price">$10/persona</p>
+      <p>Mínimo 25 personas<br>3 fotos por persona | 1 editada<br>Rápido, sencillo, inolvidable.</p>
+    </div>
+  </div>
+
+  <div id="eventos" class="group-container">
+    <div class="card">
+      <h3>Cobertura por Hora</h3>
+      <p class="price">$120/hora</p>
+      <p>Bodas, conciertos, lanzamientos, graduaciones, cumpleaños o eventos empresariales.<br>Incluye edición de color y entrega digital profesional.</p>
+    </div>
+    <div class="card">
+      <h3>Promos por Horas</h3>
+      <p class="price">Desde $220</p>
+      <p>2 horas: $220<br>3 horas: $330<br>4 horas: $440<br>5 horas: $500<br>Entrega en 7 días hábiles. Exprés en 48h por +$25.</p>
+    </div>
+    <div class="card">
+        <h3>Extra Íntimo</h3>
+        <p class="price">$180 / $280</p>
+        <p>$180 – 30 fotos | 10 editadas<br>$280 – 50 fotos | 20 editadas<br>Resalta tu esencia con elegancia y respeto artístico.</p>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar grupo por ID y activar su botón
+    function mostrarGrupo(grupoId) {
+      const grupos = document.querySelectorAll('.group-container');
+      grupos.forEach(grupo => grupo.classList.remove('active'));
+  
+      const activo = document.getElementById(grupoId);
+      if (activo) {
+        activo.classList.add('active');
+      }
+  
+      const botones = document.querySelectorAll('.boton-categoria');
+      botones.forEach(boton => boton.classList.remove('active'));
+  
+      // Activar botón correspondiente
+      const botonActivo = Array.from(botones).find(b => b.textContent.toLowerCase().includes(grupoId));
+      if (botonActivo) {
+        botonActivo.classList.add('active');
+      }
+    }
+  
+    // Activar grupo "profesionales" por defecto al cargar
+    window.addEventListener('DOMContentLoaded', () => {
+      mostrarGrupo('profesionales');
+    });
+  
+    // Modo oscuro desde otra ventana
+    window.addEventListener("message", (event) => {
+      if (event.data === "modo-oscuro") {
+        document.body.classList.add("dark-mode");
+      } else if (event.data === "modo-claro") {
+        document.body.classList.remove("dark-mode");
+      }
+    });
+  </script>
+</body>
+</html>
