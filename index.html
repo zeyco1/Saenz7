@@ -148,12 +148,42 @@
         font-size: 14px;
       }
       main {
-        margin-top: 20px;
+        margin-top: 80px;
         margin-bottom: 120px;
       }
 
       .modo-btn {
         bottom: 140px;
+      }
+    }
+
+    /* HEADER MÓVIL OCULTO POR DEFECTO */
+    .mobile-header {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background-color: var(--nav-bg);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .mobile-header img {
+      height: 45px;
+    }
+
+    /* SOLO MUESTRA EN MÓVIL */
+    @media (max-width: 768px) {
+      .mobile-header {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 100px; /* espacio para que los botones no tapen el contenido */
       }
     }
   </style>
@@ -164,6 +194,11 @@
   <header>
     <img src="image/logo.svg" alt="Logo Saenz_Z7" />
   </header>
+
+  <!-- HEADER para MÓVIL (fuera del header) -->
+  <div class="mobile-header">
+    <img src="image/logo.svg" alt="Logo Saenz_Z7" />
+  </div>
 
   <!-- NAV (visible en escritorio y móvil) -->
   <nav>

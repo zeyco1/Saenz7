@@ -113,7 +113,8 @@
         left: 0;
         right: 0;
         background-color: white; /* O usa un color semitransparente o el que desees */
-        padding: 10px;
+        padding: 10px 10px 27px 10px;
+        padding-bottom: 27px; /* <-- Aumenta este valor según lo que necesites */
         z-index: 1000;
         box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
       }
@@ -131,12 +132,12 @@
 <body>
 
     <div class="botones-container">
-        <button class="boton-categoria" onclick="mostrarGrupo('profesionales')">Profesionales</button>
-        <button class="boton-categoria" onclick="mostrarGrupo('grupales')">Grupales</button>
-        <button class="boton-categoria" onclick="mostrarGrupo('eventos')">Eventos</button>
+      <button class="boton-categoria" data-grupo="Prof" onclick="mostrarGrupo('Prof')">Prof</button>
+      <button class="boton-categoria" data-grupo="grupal" onclick="mostrarGrupo('grupal')">Grupal</button>
+      <button class="boton-categoria" data-grupo="eventos" onclick="mostrarGrupo('eventos')">Eventos</button>
     </div>
 
-  <div id="profesionales" class="group-container active">
+  <div id="Prof" class="group-container active">
     <div class="card">
       <h3>Esencia Natural</h3>
       <p class="price">$65</p>
@@ -154,7 +155,7 @@
     </div>
   </div>
 
-  <div id="grupales" class="group-container">
+  <div id="grupal" class="group-container">
     <div class="card">
       <h3>Conexión Total</h3>
       <p class="price">$120</p>
@@ -195,25 +196,24 @@
     function mostrarGrupo(grupoId) {
       const grupos = document.querySelectorAll('.group-container');
       grupos.forEach(grupo => grupo.classList.remove('active'));
-  
+
       const activo = document.getElementById(grupoId);
       if (activo) {
         activo.classList.add('active');
       }
-  
+
       const botones = document.querySelectorAll('.boton-categoria');
       botones.forEach(boton => boton.classList.remove('active'));
-  
-      // Activar botón correspondiente
-      const botonActivo = Array.from(botones).find(b => b.textContent.toLowerCase().includes(grupoId));
+
+      // Activar botón usando data-grupo
+      const botonActivo = Array.from(botones).find(b => b.dataset.grupo === grupoId);
       if (botonActivo) {
         botonActivo.classList.add('active');
       }
     }
-  
-    // Activar grupo "profesionales" por defecto al cargar
+
     window.addEventListener('DOMContentLoaded', () => {
-      mostrarGrupo('profesionales');
+      mostrarGrupo('Prof');
     });
   
     // Modo oscuro desde otra ventana
