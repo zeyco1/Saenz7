@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Estudio de fotografía profesional Saenz_Z7 - Sesiones, eventos, retratos." />
+  <meta name="keywords" content="fotografía, estudio, Saenz_Z7, eventos, sesiones, retratos" />
+  <meta name="author" content="Saenz_Z7" />
   <style>
     body {
       transition: background-color 0.3s, color 0.3s;
@@ -57,12 +60,12 @@
     }
 
     .card {
-            background-color: #00cfff;
-            border: 2px solid #001e3b;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            transition: background-color 0.3s;
+      background-color: #00cfff;
+      border: 2px solid #001e3b;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: background-color 0.3s;
     }
 
     .dark-mode .card {
@@ -84,49 +87,62 @@
     }
 
     .boton-categoria {
-        background-color: #00cfff;
-        border: none;
-        border-radius: 30px;
-        padding: 12px 25px;
-        margin: 10px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #ffffff;
-        cursor: pointer;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        transition: background-color 0.3s, transform 0.2s;
+      background-color: #00cfff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     .boton-categoria:hover {
-        background-color: #00b3e0;
-        transform: translateY(-2px);
+      background-color: #00b3e0;
+      transform: translateY(-2px);
     }
 
+    /* Botones de navegación superiores */
     .botones-container {
-        text-align: center;
-        margin-bottom: 30px;
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 10;
     }
+
+    .botones-container button {
+      margin: 5px;
+    }
+
     @media (max-width: 768px) {
+      /* En móviles los botones también se mantendrán visibles arriba */
       .botones-container {
         position: fixed;
-        bottom: 0;
+        top: 0;
         left: 0;
         right: 0;
-        background-color: white;
-        padding: 10px 10px calc(27px + env(safe-area-inset-bottom)) 10px;
+        background-color: rgba(255,255,255,0.95);
+        padding: 10px;
         z-index: 1000;
-        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
       }
 
       .dark-mode .botones-container {
-        background-color: #121212;
+        background-color: rgba(18,18,18,0.95);
       }
 
       body {
-        padding-bottom: calc(120px + env(safe-area-inset-bottom));
+        padding-top: 120px; /* Espacio para no tapar contenido */
       }
     }
-    
+
     .boton-categoria.active {
       background-color: #0077a3; /* Un azul más oscuro que el original */
       box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Un poco más de sombra si quieres */
@@ -135,11 +151,12 @@
 </head>
 <body>
 
-    <div class="botones-container">
-      <button class="boton-categoria" data-grupo="Prof" onclick="mostrarGrupo('Prof')">Prof</button>
-      <button class="boton-categoria" data-grupo="grupal" onclick="mostrarGrupo('grupal')">Grupal</button>
-      <button class="boton-categoria" data-grupo="eventos" onclick="mostrarGrupo('eventos')">Eventos</button>
-    </div>
+  <!-- Botones ahora visibles en la parte superior, tanto en escritorio como en móvil -->
+  <div class="botones-container">
+    <button class="boton-categoria" data-grupo="Prof" onclick="mostrarGrupo('Prof')">Prof</button>
+    <button class="boton-categoria" data-grupo="grupal" onclick="mostrarGrupo('grupal')">Grupal</button>
+    <button class="boton-categoria" data-grupo="eventos" onclick="mostrarGrupo('eventos')">Eventos</button>
+  </div>
 
   <div id="Prof" class="group-container active">
     <div class="card">
@@ -219,7 +236,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       mostrarGrupo('Prof');
     });
-  
+
     // Modo oscuro desde otra ventana
     window.addEventListener("message", (event) => {
       if (event.data === "modo-oscuro") {
@@ -229,5 +246,6 @@
       }
     });
   </script>
+  <div style="height: 250px;"></div> <!-- espacios debajo del contenido -->
 </body>
 </html>
